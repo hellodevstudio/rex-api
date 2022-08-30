@@ -1,7 +1,9 @@
 package com.hellodevstudio.rexapi.controllers;
 
+import com.hellodevstudio.rexapi.services.StringResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -9,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class GeneralController {
 
   @GetMapping(value = "health-check")
-  public String getHealthCheck(){
-    return "Process ok!";
+  @ResponseBody
+  public StringResponse getHealthCheck(){
+    return new StringResponse("Process Ok!");
   }
 
 }
