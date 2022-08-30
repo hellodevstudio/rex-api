@@ -8,4 +8,9 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     env_file:
       - .env
+    healthcheck:
+      test: curl --fail -s http://localhost:${SERVER_PORT}/api/health-check || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
 
