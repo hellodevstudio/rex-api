@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  api:
+    container_name: rex_api_service
+    restart: always
+    build: .
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    env_file:
+      - .env
+
